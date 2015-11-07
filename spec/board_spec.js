@@ -6,7 +6,7 @@ describe("A 10x10 board", function() {
     });
 
     it("has a width of 10", function() {
-	expect(the_board.width()).toBeTruthy();
+	expect(the_board.width()).toEqual(10);
     });
 
     afterEach(function() {
