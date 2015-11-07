@@ -1,5 +1,15 @@
-describe("a dummy spec", function() {
-    it("passes", function() {
-	expect(true).toBeTruthy();
+describe("A 10x10 board", function() {
+    var the_board= null;
+    
+    beforeEach(function() {
+	the_board= new Board();
+    });
+
+    it("has a width of 10", function() {
+	expect(the_board.width()).toBeTruthy();
+    });
+
+    afterEach(function() {
+	the_board= null;
     });
 });
