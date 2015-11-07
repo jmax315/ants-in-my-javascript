@@ -13,11 +13,11 @@ describe("A 10x10 board", function() {
 	expect(the_board.height()).toEqual(10);
     });
 
-    for (var row= 0; row < 10; row++)
-	for (var column= 0; column < 10; column++)
-	    it("has a white square at [" + row + "," + column + "]", function() {
-		expect(the_board.color(row, column)).toEqual('white');
-	    });
+    it("has white squares everywhere", function() {
+	for (var row= 0; row < 10; row++)
+	    for (var column= 0; column < 10; column++)
+		expect(the_board.color(row, column)).toEqual('white', "for square [" + row + "," + column + "]");
+    });
 
     afterEach(function() {
 	the_board= null;
