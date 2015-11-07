@@ -10,5 +10,5 @@ Board.prototype.height= function() {
 }
 
 Board.prototype.color= function(row, column) {
-    return 'black';
+    return 'white';
 }
