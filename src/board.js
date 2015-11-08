@@ -15,9 +15,9 @@ Board.prototype.color= function(row, column) {
 
 Board.prototype.display= function(container) {
     var displayed_board= $("<table id='ant-board'></table>").appendTo(container);
-    for (var i= 0; i < 10; i++) {
+    for (var row= 0; row < 10; row++) {
 	var displayed_row= $("<tr></tr>").appendTo(displayed_board);
-	for (var j= 0; j < 10; j++)
+	for (var column= 0; column < 10; column++)
 	    $("<td></td>").appendTo(displayed_row);
     }
 }
