@@ -2,10 +2,6 @@ describe("a board with an ant on it, when displayed", function() {
     var the_ant= null;
     var displayed_table= null;
 
-    function displayed_cell(row, column) {
-	return $(displayed_table[0].rows[row].cells[column]);
-    }
-
     beforeEach(function() {
     	var the_board= new Board();
     	the_ant= the_board.add_ant();
@@ -15,6 +11,6 @@ describe("a board with an ant on it, when displayed", function() {
     });
 
     it("puts the ant image in the ant's cell", function() {
-	expect(displayed_cell(the_ant.row(), the_ant.column())).toHaveHtml("<img src=\"images/ant-up.jpg\">");
+	expect(displayed_cell(displayed_table, the_ant.row(), the_ant.column())).toHaveHtml("<img src=\"images/ant-up.jpg\">");
     });
 });
