@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ants in My Javascript</title>
+
+  <style>
+    #ant-board {margin-left: 10%; border-collapse: collapse; background-color: grey;}
+    .white-cell {border: 1px solid black; width: 0.5in; height: 0.5in; background-color: white;}
+  </style>
+
+  <script src="lib/jquery.js"></script>
+
+  <script src="src/board.js"></script>
+
+  <script>
+    $(function() {(new Board()).display($('body'));});
+  </script>
+</head>
+<body>
+</body>
+</html>
