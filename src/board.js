@@ -16,7 +16,7 @@ Board.prototype.color= function(row, column) {
 Board.prototype.display_row= function(displayed_board) {
     var displayed_row= $("<tr></tr>").appendTo(displayed_board);
     for (var column= 0; column < this.width(); column++)
-	$("<td></td>").appendTo(displayed_row);
+	$("<td class='white-cell'></td>").appendTo(displayed_row);
 }
 
 Board.prototype.display= function(container) {
