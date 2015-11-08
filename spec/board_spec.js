@@ -21,11 +21,12 @@ describe("A 10x10 board", function() {
 
     describe("when displayed", function() {
 	beforeEach(function() {
-	    the_board.display();
+	    jasmine.getFixtures().set("<div id='board-div'></div>");
+	    the_board.display($('#board-div'));
 	});
 
 	it("creates a table", function() {
-	    expect($('#ant-board')).toBeVisible();
+	    expect($('#board-div>table#ant-board')).toBeInDOM();
 	}); 
     });
     
