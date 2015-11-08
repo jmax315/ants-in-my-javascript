@@ -20,12 +20,6 @@ Board.prototype.display_cell= function(displayed_row, row, column) {
 	$("<td class='white-cell'></td>").appendTo(displayed_row);
 }
 
-Board.prototype.display_row= function(displayed_board, row) {
-    var displayed_row= $("<tr></tr>").appendTo(displayed_board);
-    for (var column= 0; column < this.width(); column++)
-	this.display_cell(displayed_row, row, column);
-}
-
 Board.prototype.display= function(container) {
     var ui= new Ui(container);
     var displayed_board= ui.display(this);
