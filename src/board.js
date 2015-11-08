@@ -14,5 +14,15 @@ Board.prototype.color= function(row, column) {
 }
 
 Board.prototype.display= function(container) {
-    container.append("<table id='ant-board'></table>");
+    $("<table id='ant-board'></table>").appendTo(container).
+	append("<tr></tr").
+	append("<tr></tr").
+	append("<tr></tr").
+	append("<tr></tr").
+	append("<tr></tr").
+	append("<tr></tr").
+	append("<tr></tr").
+	append("<tr></tr").
+	append("<tr></tr").
+	append("<tr></tr");
 }
