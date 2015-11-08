@@ -30,28 +30,28 @@ describe("A 10x10 board", function() {
 	});
 
 	describe("creates a table", function() {
-	    var display_table= null;
+	    var displayed_table= null;
 
 	    beforeEach(function() {
-		display_table= $('#board-div>table#ant-board');
+		displayed_table= $('#board-div>table#ant-board');
 	    });
 
 	    it("in the DOM", function() {
-		expect(display_table).toBeInDOM();
+		expect(displayed_table).toBeInDOM();
 	   }); 
 
 	    it("with 10 rows", function() {
-		expect(display_table[0].rows.length).toEqual(10);
+		expect(displayed_table[0].rows.length).toEqual(10);
 	    });
 
 	    it("with 10 columns", function() {
-		expect(display_table[0].rows[0].cells.length).toEqual(10);
+		expect(displayed_table[0].rows[0].cells.length).toEqual(10);
 	    });
 
 	    it("with each cell having a CSS class of 'white-cell'", function() {
 		for (var row= 0; row < 10; row++)
 		    for (var column= 0; column < 10; column++)
-			expect($(display_table[0].rows[row].cells[column])).toHaveClass('white-cell', cell_message(row, column));
+			expect(displayed_cell(displayed_table, row, column)).toHaveClass('white-cell', cell_message(row, column));
 	    });
 	});
     });
