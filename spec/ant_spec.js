@@ -5,8 +5,12 @@ describe("an ant", function() {
     	the_ant= new Ant();
     });
 
-    it("is located at [5,5]", function() {
-	expect(the_ant.location()).toEqual([5,5]);
+    it("is located at row 5", function() {
+	expect(the_ant.row()).toEqual(5);
+    });
+
+    it("is located at column 5", function() {
+	expect(the_ant.column()).toEqual(5);
     });
 
     it("is is pointing up", function() {

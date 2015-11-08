@@ -38,7 +38,7 @@ describe("A 10x10 board", function() {
 
 	    it("in the DOM", function() {
 		expect(display_table).toBeInDOM();
-	    }); 
+	   }); 
 
 	    it("with 10 rows", function() {
 		expect(display_table[0].rows.length).toEqual(10);

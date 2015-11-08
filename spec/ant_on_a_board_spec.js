@@ -11,8 +11,6 @@ describe("a board with an ant on it, when displayed", function() {
     });
 
     it("puts the ant image in the ant's cell", function() {
-	var ant_row= the_ant.location()[0];
-	var ant_column= the_ant.location()[1];
-	expect($(display_table[0].rows[ant_row].cells[ant_column])).toHaveHtml("<img src=\"images/ant-up.jpg\">");
+	expect($(display_table[0].rows[the_ant.row()].cells[the_ant.column()])).toHaveHtml("<img src=\"images/ant-up.jpg\">");
     });
 });
