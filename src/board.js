@@ -28,9 +28,7 @@ Board.prototype.display_row= function(displayed_board, row) {
 
 Board.prototype.display= function(container) {
     var ui= new Ui(container);
-    var displayed_board= $("<table id='ant-board'></table>").appendTo(ui.container());
-    for (var row= 0; row < this.height(); row++)
-	this.display_row(displayed_board, row);
+    var displayed_board= ui.display(this);
 }
 
 Board.prototype.add_ant= function() {
