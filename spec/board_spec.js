@@ -43,6 +43,12 @@ describe("A 10x10 board", function() {
 	    it("with 10 columns", function() {
 		expect(display_table[0].rows[0].cells.length).toEqual(10);
 	    });
+
+	    it("with each cell having a CSS class of 'white-cell'", function() {
+		for (var row= 0; row < 10; row++)
+		    for (var column= 0; column < 10; column++)
+			expect($(display_table[0].rows[row].cells[column])).toHaveClass('white-cell', "for cell [" + row + "," + column + "]");
+	    });
 	});
     });
     
