@@ -1,17 +1,18 @@
-describe("an ant on the board", function() {
-    var the_board= null;
+describe("a board with an ant on it, when displayed", function() {
     var the_ant= null;
+    var display_table= null;
 
     beforeEach(function() {
-    	the_board= new Board();
+    	var the_board= new Board();
     	the_ant= the_board.add_ant();
+	jasmine.getFixtures().set("<div id='board-div'></div>");
+	the_board.display($('#board-div'));
+	display_table= $('#board-div>table#ant-board');
     });
 
-    it("is located at [5,5]", function() {
-	expect(the_ant.location()).toEqual([5,5]);
-    });
-
-    it("is is pointing up", function() {
-	expect(the_ant.direction()).toEqual('up');
+    it("puts the ant image in the ant's cell", function() {
+	var ant_row= the_ant.location()[0];
+	var ant_column= the_ant.location()[1];
+	expect($(display_table[0].rows[ant_row].cells[ant_column])).toHaveHtml("<img src=\"images/ant-up.jpg\">");
     });
 });

@@ -30,8 +30,5 @@ Board.prototype.display= function(container) {
 }
 
 Board.prototype.add_ant= function() {
-    return {
-	location: function() {return [5,5];},
-	direction: function() {return 'up';}
-    };
+    return new Ant();
 }
