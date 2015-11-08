@@ -28,3 +28,6 @@ Board.prototype.display= function(container) {
     for (var row= 0; row < this.height(); row++)
 	this.display_row(displayed_board);
 }
+
+Board.prototype.add_ant= function() {
+}
