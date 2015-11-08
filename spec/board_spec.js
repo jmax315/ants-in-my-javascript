@@ -18,8 +18,8 @@ describe("A 10x10 board", function() {
     });
 
     it("has white cells everywhere", function() {
-	for (var row= 0; row < 10; row++)
-	    for (var column= 0; column < 10; column++)
+	for (var row= 0; row < the_board.height(); row++)
+	    for (var column= 0; column < the_board.width(); column++)
 		expect(the_board.color(row, column)).toEqual('white', cell_message(row, column));
     });
 
@@ -35,17 +35,21 @@ describe("A 10x10 board", function() {
 	}); 
 
 	it("with 10 rows", function() {
-	    expect(displayed_table[0].rows.length).toEqual(10);
+	    expect(displayed_table[0].rows.length).toEqual(the_board.height());
 	});
 
 	it("with 10 columns", function() {
-	    expect(displayed_table[0].rows[0].cells.length).toEqual(10);
+	    expect(displayed_table[0].rows[0].cells.length).toEqual(the_board.width());
 	});
 
 	it("with each cell having a CSS class of 'white-cell'", function() {
-	    for (var row= 0; row < 10; row++)
-		for (var column= 0; column < 10; column++)
+	    for (var row= 0; row < the_board.height(); row++)
+		for (var column= 0; column < the_board.width(); column++)
 		    expect(displayed_cell(displayed_table, row, column)).toHaveClass('white-cell', cell_message(row, column));
+	});
+
+	afterEach(function() {
+	    displayed_table= null;
 	});
     });
     
