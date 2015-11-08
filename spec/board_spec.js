@@ -39,6 +39,10 @@ describe("A 10x10 board", function() {
 	    it("with 10 rows", function() {
 		expect(display_table[0].rows.length).toEqual(10);
 	    });
+
+	    it("with 10 columns", function() {
+		expect(display_table[0].rows[0].cells.length).toEqual(10);
+	    });
 	});
     });
     
