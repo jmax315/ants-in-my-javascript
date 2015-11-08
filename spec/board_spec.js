@@ -26,14 +26,8 @@ describe("A 10x10 board", function() {
     describe("when displayed, creates a table", function() {
 	var displayed_table= null;
 
-	function display_table() {
-	    jasmine.getFixtures().set("<div id='board-div'></div>");
-	    the_board.display($('#board-div'));
-	    displayed_table= $('#board-div>table#ant-board');
-	}
-
 	beforeEach(function() {
-	    display_table();
+	    displayed_table= display_table(the_board);
 	});
 
 	it("in the DOM", function() {
