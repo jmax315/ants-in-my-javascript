@@ -10,4 +10,8 @@ describe("an ant on the board", function() {
     it("is located at [5,5]", function() {
 	expect(the_ant.location()).toEqual([5,5]);
     });
+
+    it("is is pointing up", function() {
+	expect(the_ant.direction()).toEqual('up');
+    });
 });
