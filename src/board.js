@@ -14,15 +14,15 @@ Board.prototype.color= function(row, column) {
 }
 
 Board.prototype.display= function(container) {
-    $("<table id='ant-board'></table>").appendTo(container).
-	append("<tr></tr").
-	append("<tr></tr").
-	append("<tr></tr").
-	append("<tr></tr").
-	append("<tr></tr").
-	append("<tr></tr").
-	append("<tr></tr").
-	append("<tr></tr").
-	append("<tr></tr").
-	append("<tr></tr");
+    var displayed_board= $("<table id='ant-board'></table>").appendTo(container);
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
+    displayed_board.append("<tr></tr");
 }
