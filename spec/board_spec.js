@@ -25,9 +25,18 @@ describe("A 10x10 board", function() {
 	    the_board.display($('#board-div'));
 	});
 
-	it("creates a table", function() {
-	    expect($('#board-div>table#ant-board')).toBeInDOM();
-	}); 
+	describe("creates a table", function() {
+	    var display_table= null;
+
+	    beforeEach(function() {
+		display_table= $('#board-div>table#ant-board');
+	    });
+
+	    it("in the DOM", function() {
+		expect(display_table).toBeInDOM();
+	    }); 
+
+	});
     });
     
     afterEach(function() {
