@@ -19,6 +19,16 @@ describe("A 10x10 board", function() {
 		expect(the_board.color(row, column)).toEqual('white', "for square [" + row + "," + column + "]");
     });
 
+    describe("when displayed", function() {
+	beforeEach(function() {
+	    the_board.display();
+	});
+
+	it("creates a table", function() {
+	    expect($('#ant-board')).toBeVisible();
+	}); 
+    });
+    
     afterEach(function() {
 	the_board= null;
     });
