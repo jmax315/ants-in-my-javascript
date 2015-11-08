@@ -20,7 +20,7 @@ describe("A 10x10 board", function() {
     it("has white cells everywhere", function() {
 	for (var row= 0; row < the_board.height(); row++)
 	    for (var column= 0; column < the_board.width(); column++)
-		expect(the_board.color(row, column)).toEqual('white', cell_message(row, column));
+		expect(the_board.cell_color(row, column)).toEqual('white', cell_message(row, column));
     });
 
     describe("when displayed, creates a table", function() {

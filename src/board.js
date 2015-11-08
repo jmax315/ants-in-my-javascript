@@ -9,7 +9,7 @@ Board.prototype.height= function() {
     return 10;
 }
 
-Board.prototype.color= function(row, column) {
+Board.prototype.cell_color= function(row, column) {
     return 'white';
 }
 
