@@ -13,10 +13,14 @@ Board.prototype.color= function(row, column) {
     return 'white';
 }
 
+Board.prototype.display_cell= function(displayed_row) {
+	$("<td class='white-cell'></td>").appendTo(displayed_row);
+}
+
 Board.prototype.display_row= function(displayed_board) {
     var displayed_row= $("<tr></tr>").appendTo(displayed_board);
     for (var column= 0; column < this.width(); column++)
-	$("<td class='white-cell'></td>").appendTo(displayed_row);
+	this.display_cell(displayed_row);
 }
 
 Board.prototype.display= function(container) {
