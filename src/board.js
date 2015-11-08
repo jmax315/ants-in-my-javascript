@@ -15,9 +15,9 @@ Board.prototype.color= function(row, column) {
 
 Board.prototype.display_cell= function(displayed_row, row, column) {
     if (row === 5 && column === 5)
-	$("<td class='white-cell'></td>").appendTo(displayed_row);
-    else
 	$("<td class='white-cell'><img src=\"images/ant-up.jpg\"></td>").appendTo(displayed_row);
+    else
+	$("<td class='white-cell'></td>").appendTo(displayed_row);
 }
 
 Board.prototype.display_row= function(displayed_board, row) {
