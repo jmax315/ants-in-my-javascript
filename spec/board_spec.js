@@ -1,4 +1,8 @@
 describe("A 10x10 board", function() {
+    function cell_message(row, column) {
+	return "for cell [" + row + "," + column + "]";
+    }
+
     var the_board= null;
     
     beforeEach(function() {
@@ -13,10 +17,10 @@ describe("A 10x10 board", function() {
 	expect(the_board.height()).toEqual(10);
     });
 
-    it("has white squares everywhere", function() {
+    it("has white cells everywhere", function() {
 	for (var row= 0; row < 10; row++)
 	    for (var column= 0; column < 10; column++)
-		expect(the_board.color(row, column)).toEqual('white', "for square [" + row + "," + column + "]");
+		expect(the_board.color(row, column)).toEqual('white', cell_message(row, column));
     });
 
     describe("when displayed", function() {
@@ -47,7 +51,7 @@ describe("A 10x10 board", function() {
 	    it("with each cell having a CSS class of 'white-cell'", function() {
 		for (var row= 0; row < 10; row++)
 		    for (var column= 0; column < 10; column++)
-			expect($(display_table[0].rows[row].cells[column])).toHaveClass('white-cell', "for cell [" + row + "," + column + "]");
+			expect($(display_table[0].rows[row].cells[column])).toHaveClass('white-cell', cell_message(row, column));
 	    });
 	});
     });
