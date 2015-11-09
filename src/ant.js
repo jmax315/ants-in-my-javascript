@@ -1,4 +1,5 @@
 function Ant() {
+    this._column= 5;
 }
 
 Ant.prototype.row= function() {
@@ -6,7 +7,7 @@ Ant.prototype.row= function() {
 };
 
 Ant.prototype.column= function() {
-    return 5;
+    return this._column;
 };
 
 Ant.prototype.direction= function() {
@@ -14,4 +15,5 @@ Ant.prototype.direction= function() {
 };
 
 Ant.prototype.step= function() {
+    this._column= 6;
 };
