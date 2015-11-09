@@ -12,14 +12,17 @@ Ui.prototype.cell_class= function(row, column) {
     return this.board().cell_color(row, column) + "-cell";
 }
 
-Ui.prototype.display_cell= function(displayed_row, row, column) {
+Ui.prototype.cell_contents= function(row, column) {
     if (this.board().is_ant_at(row, column))
-	$("<td class='" + this.cell_class(row, column) + "'><img src=\"images/ant-up.jpg\"></td>").appendTo(displayed_row);
-    else
-	$("<td class='" + this.cell_class(row, column) + "'></td>").appendTo(displayed_row);
+	return "<img src=\"images/ant-up.jpg\">";
+    return "";
 };
 
-Ui.prototype.display_row= function(a_board, row) {
+Ui.prototype.display_cell= function(displayed_row, row, column) {
+    $("<td class='" + this.cell_class(row, column) + "'>" + this.cell_contents(row, column) + "</td>").appendTo(displayed_row);
+};
+
+Ui.prototype.display_row= function(row) {
     var displayed_row= $("<tr></tr>").appendTo(this.displayed_board());
     for (var column= 0; column < this.board().width(); column++)
 	this.display_cell(displayed_row, row, column);
@@ -29,5 +32,5 @@ Ui.prototype.display= function(a_board) {
     this.board(a_board);
     this.displayed_board($("<table id='ant-board'></table>").appendTo(this.container()));
     for (var row= 0; row < this.board().height(); row++)
-	this.display_row(this.board(), row);
+	this.display_row(row);
 };
