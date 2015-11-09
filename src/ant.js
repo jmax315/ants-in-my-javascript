@@ -64,9 +64,14 @@ Ant.prototype.turn= function() {
     this.direction(this.new_direction());
 };
 
+Ant.prototype.on_board= function() {
+    return this.board() &&
+	this.column() >= 0 && this.column() < this.board().width() &&
+	this.row() >= 0 && this.row() < this.board().height();
+};
+
 Ant.prototype.step= function() {
-    if (this.column() < 0 || this.column() >= this.board().width() ||
-	this.row() < 0 || this.row() >= this.board().height())
+    if (!this.on_board())
 	return;
 
     this.flip_color();
