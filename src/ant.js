@@ -17,9 +17,34 @@ Ant.prototype.directions= {
     right: {turn_left: 'up',    turn_right: 'down',  row_increment:  0, column_increment: 1}
 };
 
-Ant.prototype.colors= {
-    'black': {flipped_color: 'white', turn: function() {this.direction(this.directions[this.direction()].turn_right);} },
-    'white': {flipped_color: 'black', turn: function() {this.direction(this.directions[this.direction()].turn_left);} }
+Ant.prototype.color_table= {
+    'black': {flipped_color: 'white', turn_direction: 'turn_right'},
+    'white': {flipped_color: 'black', turn_direction: 'turn_left'},
+};
+
+Ant.prototype.color_table_lookup= function() {
+    return this.color_table[this.color()];
+};
+
+Ant.prototype.direction_table_lookup= function() {
+    return this.directions[this.direction()];
+}
+
+Ant.prototype.new_direction= function() {
+    var turn_direction= this.color_table_lookup().turn_direction;
+    return this.direction_table_lookup()[turn_direction];
+};
+
+Ant.prototype.flipped_color= function() {
+    return this.color_table_lookup().flipped_color;
+};
+
+Ant.prototype.row_increment= function() {
+    return this.direction_table_lookup().row_increment;
+};
+
+Ant.prototype.column_increment= function() {
+    return this.direction_table_lookup().column_increment;
 };
 
 Ant.prototype.color= function(new_value) {
@@ -27,17 +52,17 @@ Ant.prototype.color= function(new_value) {
 };
     
 Ant.prototype.flip_color= function() {
-    this.color(this.colors[this.color()].flipped_color);
+    this.color(this.flipped_color());
 };
 
 Ant.prototype.move_forward= function() {
-    this.row(this.row() + this.directions[this.direction()].row_increment);
-    this.column(this.column() + this.directions[this.direction()].column_increment);
+    this.row(this.row() + this.row_increment());
+    this.column(this.column() + this.column_increment());
 };
 
 Ant.prototype.turn= function() {
-    this.colors[this.color()].turn.call(this);
-}
+    this.direction(this.new_direction());
+};
 
 Ant.prototype.step= function() {
     this.flip_color();
