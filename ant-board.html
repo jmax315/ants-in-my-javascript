@@ -12,12 +12,17 @@
 
   <script src="lib/jquery.js"></script>
 
+  <script src="src/sugar.js"></script>
   <script src="src/board.js"></script>
   <script src="src/ant.js"></script>
   <script src="src/ui.js"></script>
 
   <script>
-    $(function() {(new Board()).display($('body'));});
+    $(function() {
+        var board= new Board();
+        board.add_ant();
+        board.display($('body'));
+    });
   </script>
 </head>
 <body>
