@@ -15,15 +15,15 @@
   <script src="src/sugar.js"></script>
   <script src="src/board.js"></script>
   <script src="src/ant.js"></script>
-  <script src="src/ui.js"></script>
+  <script src="src/board_drawer.js"></script>
 
   <script>
     $(function() {
 	var board= new Board();
 	board.add_ant();
 
-	var ui= new Ui($('body'));
-	var displayed_board= ui.display(board);
+	var board_drawer= new BoardDrawer($('body'));
+	var displayed_board= board_drawer.display(board);
     });
   </script>
 </head>
