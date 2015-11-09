@@ -8,11 +8,15 @@ accessor(Ui, "container");
 accessor(Ui, "board");
 accessor(Ui, "displayed_board");
 
+Ui.prototype.cell_class= function(row, column) {
+    return this.board().cell_color(row, column) + "-cell";
+}
+
 Ui.prototype.display_cell= function(displayed_row, row, column) {
     if (this.board().is_ant_at(row, column))
-	$("<td class='" + this.board().cell_color(row, column) + "-cell'><img src=\"images/ant-up.jpg\"></td>").appendTo(displayed_row);
+	$("<td class='" + this.cell_class(row, column) + "'><img src=\"images/ant-up.jpg\"></td>").appendTo(displayed_row);
     else
-	$("<td class='" + this.board().cell_color(row, column) + "-cell'></td>").appendTo(displayed_row);
+	$("<td class='" + this.cell_class(row, column) + "'></td>").appendTo(displayed_row);
 };
 
 Ui.prototype.display_row= function(a_board, row) {
