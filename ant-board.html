@@ -7,9 +7,9 @@
   <style>
     #ant-board {margin-left: 10%; border-collapse: collapse; background-color: blue;}
     .white-cell {border: 1px solid black; width: 0.5in; height: 0.5in; background-color: white;}
-    .black-cell {border: 1px solid black; width: 0.5in; height: 0.5in; background-color: grey;}
-    .white-cell img {width: 75%; height: 75%;}
-    .black-cell img {width: 75%; height: 75%;}
+    .black-cell {border: 1px solid black; width: 0.5in; height: 0.5in; background-color: black;}
+    .white-cell img {width: 90%; height: 90%;}
+    .black-cell img {width: 90%; height: 90%;}
   </style>
 
   <script src="lib/jquery.js"></script>
@@ -33,10 +33,10 @@
 			renderer.row(0);
 			renderer.column(0);
 			renderer.display(board);
-                        if (count++ > 100)
+                        if (count++ > 1000)
                             clearInterval(interval_handle);
 		    },
-		    250);
+		    100);
     });
   </script>
 </head>
