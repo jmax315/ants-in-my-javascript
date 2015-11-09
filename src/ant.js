@@ -10,11 +10,15 @@ accessor(Ant, "column");
 accessor(Ant, "direction");
 accessor(Ant, "board");
 
+Ant.prototype.color= function(new_value) {
+    return this.board().cell_color(this.row(), this.column(), new_value);
+};
+    
 Ant.prototype.flip_color= function() {
-    if (this.board().cell_color(this.row(), this.column()) === 'white')
-	this.board().cell_color(this.row(), this.column(), 'black');
+    if (this.color() === 'white')
+	this.color('black');
     else
-	this.board().cell_color(this.row(), this.column(), 'white');
+	this.color('white');
 };
 
 Ant.prototype.turn_left= function() {
@@ -69,7 +73,7 @@ Ant.prototype.move_forward= function() {
 };
 
 Ant.prototype.turn= function() {
-    if (this.board().cell_color(this.row(), this.column()) === 'white')
+    if (this.color() === 'white')
 	this.turn_left();
     else
 	this.turn_right();
