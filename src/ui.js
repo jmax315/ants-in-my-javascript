@@ -28,10 +28,14 @@ Ui.prototype.start_row= function() {
     this.displayed_row($("<tr></tr>").appendTo(this.displayed_board()));
 };
 
+Ui.prototype.done= function() {
+    return this.row() >= this.board().height();
+};
+
 Ui.prototype.display= function(a_board) {
     this.board(a_board);
     this.displayed_board($("<table id='ant-board'></table>").appendTo(this.container()));
-    while (this.row() < this.board().height()) {
+    while (!this.done()) {
 	this.start_row();
 	while (this.column() < this.board().width()) {
 	    $("<td class='" + this.cell_class() + "'>" + this.cell_contents() + "</td>").appendTo(this.displayed_row());
