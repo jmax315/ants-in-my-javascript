@@ -10,15 +10,15 @@ _.each(
 	{color: 'white', row: 3, column: 7, direction: 'down',  new_color: 'black', new_row: 3, new_column: 6, new_direction: 'left'},
 	{color: 'white', row: 3, column: 7, direction: 'right', new_color: 'black', new_row: 4, new_column: 7, new_direction: 'down'},
 
-	{color: 'black', row: 5, column: 5, direction: 'up',    new_color: 'white', new_row: 5, new_column: 6, new_direction: 'right'},
-	{color: 'black', row: 5, column: 5, direction: 'left',  new_color: 'white', new_row: 4, new_column: 5, new_direction: 'up'},
-	{color: 'black', row: 5, column: 5, direction: 'down',  new_color: 'white', new_row: 5, new_column: 4, new_direction: 'left'},
-	{color: 'black', row: 5, column: 5, direction: 'right', new_color: 'white', new_row: 6, new_column: 5, new_direction: 'down'},
+	{color: 'black', row: 5, column: 5, direction: 'up',    new_color: 'white', new_row: 5, new_column: 4, new_direction: 'left'},
+	{color: 'black', row: 5, column: 5, direction: 'left',  new_color: 'white', new_row: 6, new_column: 5, new_direction: 'down'},
+	{color: 'black', row: 5, column: 5, direction: 'down',  new_color: 'white', new_row: 5, new_column: 6, new_direction: 'right'},
+	{color: 'black', row: 5, column: 5, direction: 'right', new_color: 'white', new_row: 4, new_column: 5, new_direction: 'up'},
 
-	{color: 'black', row: 3, column: 7, direction: 'up',    new_color: 'white', new_row: 3, new_column: 8, new_direction: 'right'},
-	{color: 'black', row: 3, column: 7, direction: 'left',  new_color: 'white', new_row: 2, new_column: 7, new_direction: 'up'},
-	{color: 'black', row: 3, column: 7, direction: 'down',  new_color: 'white', new_row: 3, new_column: 6, new_direction: 'left'},
-	{color: 'black', row: 3, column: 7, direction: 'right', new_color: 'white', new_row: 4, new_column: 7, new_direction: 'down'},
+	{color: 'black', row: 3, column: 7, direction: 'up',    new_color: 'white', new_row: 3, new_column: 6, new_direction: 'left'},
+	{color: 'black', row: 3, column: 7, direction: 'left',  new_color: 'white', new_row: 4, new_column: 7, new_direction: 'down'},
+	{color: 'black', row: 3, column: 7, direction: 'down',  new_color: 'white', new_row: 3, new_column: 8, new_direction: 'right'},
+	{color: 'black', row: 3, column: 7, direction: 'right', new_color: 'white', new_row: 2, new_column: 7, new_direction: 'up'},
     ],
 
     function(test_case) {
