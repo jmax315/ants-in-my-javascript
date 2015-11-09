@@ -20,6 +20,9 @@ Board.prototype.height= function() {
 }
 
 Board.prototype.cell_color= function(row, column, new_value) {
+    if (row < 0 || row >= this.height() || column < 0 || column >= this.width())
+	return null;
+
     if (new_value !== undefined)
 	this._cells[row][column]= new_value;
     return this._cells[row][column];
