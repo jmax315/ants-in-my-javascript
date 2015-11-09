@@ -31,6 +31,7 @@ _.each(
 
 		     beforeEach(function() {
 			 the_board= new Board();
+			 the_board.cell_color(test_case.row, test_case.column, test_case.color);
 			 the_ant= the_board.add_ant();
 			 the_ant.row(test_case.row);
 			 the_ant.column(test_case.column);
@@ -50,7 +51,7 @@ _.each(
 			 expect(the_ant.direction()).toEqual(test_case.new_direction);
 		     });
 
-		     it("its old cell is flipped to black", function() {
+		     it("the cell at [" + test_case.row + "," + test_case.column + "] is " + test_case.new_color, function() {
 			 expect(the_board.cell_color(test_case.row, test_case.column)).toEqual(test_case.new_color);
 		     });
 		 });
