@@ -19,8 +19,9 @@ Ui.prototype.cell_class= function() {
 }
 
 Ui.prototype.cell_contents= function() {
-    if (this.board().is_ant_at(this.row(), this.column()))
-	return "<img src=\"images/ant-on-white-up.jpg\">";
+    if (this.board().is_ant_at(this.row(), this.column())) {
+	return "<img src=\"images/ant-on-white-" + this.board().ant().direction() + ".jpg\">";
+    }
     return "";
 };
 
