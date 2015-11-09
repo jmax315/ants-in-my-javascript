@@ -13,4 +13,8 @@ describe("after stepping an ant at [5,5], facing up, on a white cell", function(
     it("is located at column 6", function() {
 	expect(the_ant.column()).toEqual(6);
     });
+
+    it("is facing right", function() {
+	expect(the_ant.direction()).toEqual('right');
+    });
 });
