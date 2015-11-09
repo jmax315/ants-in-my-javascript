@@ -65,6 +65,10 @@ Ant.prototype.turn= function() {
 };
 
 Ant.prototype.step= function() {
+    if (this.column() < 0 || this.column() >= this.board().width() ||
+	this.row() < 0 || this.row() >= this.board().height())
+	return;
+
     this.flip_color();
     this.turn();
     this.move_forward();
