@@ -1,5 +1,5 @@
-function Ui(ui_container) {
-    this.container(ui_container);
+function BoardDrawer(board_container) {
+    this.container(board_container);
     this.board(null);
     this.displayed_board(null);
     this.row(0);
@@ -7,18 +7,18 @@ function Ui(ui_container) {
     this.displayed_row(null);
 }
 
-accessor(Ui, "container");
-accessor(Ui, "board");
-accessor(Ui, "displayed_board");
-accessor(Ui, "row");
-accessor(Ui, "column");
-accessor(Ui, "displayed_row");
+accessor(BoardDrawer, "container");
+accessor(BoardDrawer, "board");
+accessor(BoardDrawer, "displayed_board");
+accessor(BoardDrawer, "row");
+accessor(BoardDrawer, "column");
+accessor(BoardDrawer, "displayed_row");
 
-Ui.prototype.cell_class= function() {
+BoardDrawer.prototype.cell_class= function() {
     return this.board().cell_color(this.row(), this.column()) + "-cell";
 }
 
-Ui.prototype.cell_contents= function() {
+BoardDrawer.prototype.cell_contents= function() {
     if (this.board().is_ant_at(this.row(), this.column())) {
 	var color= this.board().cell_color(this.row(), this.column());
 	var direction= this.board().ant().direction();
@@ -27,15 +27,15 @@ Ui.prototype.cell_contents= function() {
     return "";
 };
 
-Ui.prototype.start_row= function() {
+BoardDrawer.prototype.start_row= function() {
     this.displayed_row($("<tr></tr>").appendTo(this.displayed_board()));
 };
 
-Ui.prototype.done= function() {
+BoardDrawer.prototype.done= function() {
     return this.row() >= this.board().height();
 };
 
-Ui.prototype.next_cell= function() {
+BoardDrawer.prototype.next_cell= function() {
     this.column(this.column() + 1);
     if (this.column() >= this.board().width()) {
 	this.column(0);
@@ -43,7 +43,7 @@ Ui.prototype.next_cell= function() {
     }
 };
 
-Ui.prototype.add_cell= function() {
+BoardDrawer.prototype.add_cell= function() {
     if (this.column() === 0)
 	this.start_row();
 
@@ -52,7 +52,7 @@ Ui.prototype.add_cell= function() {
     return !this.done();
 };
 
-Ui.prototype.display= function(a_board) {
+BoardDrawer.prototype.display= function(a_board) {
     this.board(a_board);
     this.displayed_board($("<table id='ant-board'></table>").appendTo(this.container()));
     while (this.add_cell())

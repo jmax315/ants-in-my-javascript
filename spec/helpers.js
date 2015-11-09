@@ -5,8 +5,8 @@ function displayed_cell(displayed_table, row, column) {
 function display_table(the_board) {
     jasmine.getFixtures().set("<div id='board-div'></div>");
 
-    var ui= new Ui($('#board-div'));
-    var displayed_board= ui.display(the_board);
+    var board_drawer= new BoardDrawer($('#board-div'));
+    var displayed_board= board_drawer.display(the_board);
 
     return $('#board-div>table#ant-board');
 }

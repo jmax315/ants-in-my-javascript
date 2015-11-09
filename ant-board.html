@@ -17,13 +17,13 @@
   <script src="src/sugar.js"></script>
   <script src="src/board.js"></script>
   <script src="src/ant.js"></script>
-  <script src="src/ui.js"></script>
+  <script src="src/board_drawer.js"></script>
 
   <script>
     $(function() {
 	var board= new Board();
 	var ant= board.add_ant();
-        var renderer= new Ui($('body'));
+        var renderer= new BoardDrawer($('body'));
         var count= 0;
 
 	renderer.display(board);
