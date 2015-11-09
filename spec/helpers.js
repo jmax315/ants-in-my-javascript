@@ -7,3 +7,7 @@ function display_table(the_board) {
     the_board.display($('#board-div'));
     return $('#board-div>table#ant-board');
 }
+
+function cell_message(row, column) {
+    return "for cell [" + row + "," + column + "]";
+}

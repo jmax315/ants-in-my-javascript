@@ -1,8 +1,4 @@
 describe("A 10x10 board", function() {
-    function cell_message(row, column) {
-	return "for cell [" + row + "," + column + "]";
-    }
-
     var the_board= null;
     
     beforeEach(function() {
