@@ -1,4 +1,11 @@
 function Board() {
+    this._cells= [];
+    for (var row= 0; row < this.width(); row++) {
+	var new_row= [];
+	for (var column= 0; column < this.height(); column++)
+	    new_row.push('white');
+	this._cells.push(new_row);
+    }
 }
 
 Board.prototype.width= function() {
@@ -9,8 +16,10 @@ Board.prototype.height= function() {
     return 10;
 }
 
-Board.prototype.cell_color= function(row, column) {
-    return 'white';
+Board.prototype.cell_color= function(row, column, new_value) {
+    if (new_value !== undefined)
+	this._cells[row][column]= new_value;
+    return this._cells[row][column];
 }
 
 Board.prototype.display= function(container) {
@@ -19,5 +28,5 @@ Board.prototype.display= function(container) {
 }
 
 Board.prototype.add_ant= function() {
-    return new Ant();
+    return new Ant(this);
 }
