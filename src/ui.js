@@ -40,14 +40,18 @@ Ui.prototype.next_cell= function() {
     }
 };
 
+Ui.prototype.add_cell= function() {
+    if (this.column() === 0)
+	this.start_row();
+
+    $("<td class='" + this.cell_class() + "'>" + this.cell_contents() + "</td>").appendTo(this.displayed_row());
+};
+
 Ui.prototype.display= function(a_board) {
     this.board(a_board);
     this.displayed_board($("<table id='ant-board'></table>").appendTo(this.container()));
     while (!this.done()) {
-	if (this.column() === 0)
-	    this.start_row();
-
-	$("<td class='" + this.cell_class() + "'>" + this.cell_contents() + "</td>").appendTo(this.displayed_row());
+	this.add_cell();
 	this.next_cell();
     }
 };
