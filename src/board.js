@@ -34,3 +34,9 @@ Board.prototype.add_ant= function() {
     this.ant(new Ant(this));
     return this.ant();
 }
+
+Board.prototype.is_ant_at= function(row, column) {
+    return this.ant() &&
+	row === this.ant().row() &&
+	column === this.ant().column();
+};

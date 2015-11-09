@@ -8,14 +8,8 @@ accessor(Ui, "container");
 accessor(Ui, "board");
 accessor(Ui, "displayed_board");
 
-Ui.prototype.is_ant_at= function(row, column) {
-    return this.board().ant() &&
-	row === this.board().ant().row() &&
-	column === this.board().ant().column();
-};
-
 Ui.prototype.display_cell= function(displayed_row, row, column) {
-    if (this.is_ant_at(row, column))
+    if (this.board().is_ant_at(row, column))
 	$("<td class='white-cell'><img src=\"images/ant-up.jpg\"></td>").appendTo(displayed_row);
     else
 	$("<td class='white-cell'></td>").appendTo(displayed_row);
