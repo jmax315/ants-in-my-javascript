@@ -13,30 +13,19 @@
   </style>
 
   <script src="lib/jquery.js"></script>
+  <script src="lib/underscore.js"></script>
 
   <script src="src/sugar.js"></script>
   <script src="src/board.js"></script>
   <script src="src/ant.js"></script>
   <script src="src/board_drawer.js"></script>
+  <script src="src/app.js"></script>
 
   <script>
     $(function() {
-	var board= new Board();
-	var ant= board.add_ant();
-        var renderer= new BoardDrawer($('body'));
-        var count= 0;
-
-	renderer.display(board);
-        var interval_handle= setInterval(function() {
-			ant.step();
-                        $('body').html("");
-			renderer.row(0);
-			renderer.column(0);
-			renderer.display(board);
-                        if (count++ > 1000)
-                            clearInterval(interval_handle);
-		    },
-		    100);
+        var app= new App();
+        app.setup($('body'));
+        app.run();
     });
   </script>
 </head>
