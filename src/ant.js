@@ -10,24 +10,42 @@ accessor(Ant, "column");
 accessor(Ant, "direction");
 accessor(Ant, "board");
 
-Ant.prototype.step= function() {
-    this.board().cell_color(this.row(), this.column(), 'black');
+Ant.prototype.turn_right= function() {
     switch(this.direction()) {
     case 'up':
-	this.column(6);
 	this.direction('right');
 	break;
     case 'left':
-	this.row(4);
 	this.direction('up');
 	break;
     case 'down':
-	this.column(4);
 	this.direction('left');
 	break;
     case 'right':
-	this.row(6);
 	this.direction('down');
 	break;
     }
+}
+
+Ant.prototype.move_forward= function() {
+    switch(this.direction()) {
+    case 'up':
+	this.row(4);
+	break;
+    case 'left':
+	this.column(4);
+	break;
+    case 'down':
+	this.row(6);
+	break;
+    case 'right':
+	this.column(6);
+	break;
+    }
+}
+
+Ant.prototype.step= function() {
+    this.board().cell_color(this.row(), this.column(), 'black');
+    this.turn_right();
+    this.move_forward();
 };
