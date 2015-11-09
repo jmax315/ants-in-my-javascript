@@ -14,12 +14,12 @@ accessor(Ui, "row");
 accessor(Ui, "column");
 accessor(Ui, "displayed_row");
 
-Ui.prototype.cell_class= function(row, column) {
-    return this.board().cell_color(row, column) + "-cell";
+Ui.prototype.cell_class= function() {
+    return this.board().cell_color(this.row(), this.column()) + "-cell";
 }
 
-Ui.prototype.cell_contents= function(row, column) {
-    if (this.board().is_ant_at(row, column))
+Ui.prototype.cell_contents= function() {
+    if (this.board().is_ant_at(this.row(), this.column()))
 	return "<img src=\"images/ant-up.jpg\">";
     return "";
 };
@@ -30,7 +30,7 @@ Ui.prototype.display= function(a_board) {
     while (this.row() < this.board().height()) {
 	this.displayed_row= $("<tr></tr>").appendTo(this.displayed_board());
 	while (this.column() < this.board().width()) {
-	    $("<td class='" + this.cell_class(this.row(), this.column()) + "'>" + this.cell_contents(this.row(), this.column()) + "</td>").appendTo(this.displayed_row);
+	    $("<td class='" + this.cell_class() + "'>" + this.cell_contents() + "</td>").appendTo(this.displayed_row);
 	    this.column(this.column() + 1);
 	}
 	this.column(0);
