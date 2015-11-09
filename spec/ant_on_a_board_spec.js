@@ -1,6 +1,9 @@
 _.each(
     [
-	{color: 'white', direction: 'up', expected_image: "images/ant-on-white-up.jpg"},
+	{color: 'white', direction: 'up',    expected_image: "images/ant-on-white-up.jpg"},
+	{color: 'white', direction: 'left',  expected_image: "images/ant-on-white-left.jpg"},
+	{color: 'white', direction: 'down',  expected_image: "images/ant-on-white-down.jpg"},
+	{color: 'white', direction: 'right', expected_image: "images/ant-on-white-right.jpg"},
     ],
     function(test_case) {
 	describe("a board with an ant on a " + test_case.color + " cell, facing " + test_case.direction + ", when displayed", function() {
