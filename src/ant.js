@@ -1,19 +1,18 @@
+function accessor(constructor, name) {
+    constructor.prototype[name]= function(new_value) {
+	return this["_" + name];
+    };
+}
+
 function Ant() {
+    this._row= 5;
     this._column= 5;
     this._direction= 'up';
 }
 
-Ant.prototype.row= function() {
-    return 5;
-};
-
-Ant.prototype.column= function() {
-    return this._column;
-};
-
-Ant.prototype.direction= function() {
-    return this._direction;
-};
+accessor(Ant, "row");
+accessor(Ant, "column");
+accessor(Ant, "direction");
 
 Ant.prototype.step= function() {
     this._column= 6;
