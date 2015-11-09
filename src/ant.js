@@ -17,6 +17,23 @@ Ant.prototype.flip_color= function() {
 	this.board().cell_color(this.row(), this.column(), 'white');
 };
 
+Ant.prototype.turn_left= function() {
+    switch(this.direction()) {
+    case 'up':
+	this.direction('left');
+	break;
+    case 'left':
+	this.direction('down');
+	break;
+    case 'down':
+	this.direction('right');
+	break;
+    case 'right':
+	this.direction('up');
+	break;
+    }
+};
+
 Ant.prototype.turn_right= function() {
     switch(this.direction()) {
     case 'up':
@@ -51,8 +68,15 @@ Ant.prototype.move_forward= function() {
     }
 };
 
+Ant.prototype.turn= function() {
+    if (this.board().cell_color(this.row(), this.column()) === 'white')
+	this.turn_left();
+    else
+	this.turn_right();
+}
+
 Ant.prototype.step= function() {
     this.flip_color();
-    this.turn_right();
+    this.turn();
     this.move_forward();
 };
