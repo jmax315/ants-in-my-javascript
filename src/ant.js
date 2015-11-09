@@ -10,6 +10,10 @@ accessor(Ant, "column");
 accessor(Ant, "direction");
 accessor(Ant, "board");
 
+Ant.prototype.flip_color= function() {
+    this.board().cell_color(this.row(), this.column(), 'black');
+};
+
 Ant.prototype.turn_right= function() {
     switch(this.direction()) {
     case 'up':
@@ -25,7 +29,7 @@ Ant.prototype.turn_right= function() {
 	this.direction('down');
 	break;
     }
-}
+};
 
 Ant.prototype.move_forward= function() {
     switch(this.direction()) {
@@ -42,10 +46,10 @@ Ant.prototype.move_forward= function() {
 	this.column(6);
 	break;
     }
-}
+};
 
 Ant.prototype.step= function() {
-    this.board().cell_color(this.row(), this.column(), 'black');
+    this.flip_color();
     this.turn_right();
     this.move_forward();
 };
