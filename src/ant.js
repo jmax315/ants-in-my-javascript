@@ -34,16 +34,16 @@ Ant.prototype.turn_right= function() {
 Ant.prototype.move_forward= function() {
     switch(this.direction()) {
     case 'up':
-	this.row(4);
+	this.row(this.row() - 1);
 	break;
     case 'left':
-	this.column(4);
+	this.column(this.column() - 1);
 	break;
     case 'down':
-	this.row(6);
+	this.row(this.row() + 1);
 	break;
     case 'right':
-	this.column(6);
+	this.column(this.column() + 1);
 	break;
     }
 };
