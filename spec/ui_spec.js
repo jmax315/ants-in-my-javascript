@@ -4,6 +4,8 @@ describe("when displayed, creates a table", function() {
 
     beforeEach(function() {
 	the_board= new Board();
+	the_board.cell_color(0, 0, 'black');
+	the_board.cell_color(1, 1, 'white');
 	displayed_table= display_table(the_board);
     });
 
@@ -19,10 +21,12 @@ describe("when displayed, creates a table", function() {
 	expect(displayed_table[0].rows[0].cells.length).toEqual(the_board.width());
     });
 
-    it("with each cell having a CSS class of 'white-cell'", function() {
+    it("with each cell having a CSS class to match its color", function() {
 	for (var row= 0; row < the_board.height(); row++)
-	    for (var column= 0; column < the_board.width(); column++)
-		expect(displayed_cell(displayed_table, row, column)).toHaveClass('white-cell', cell_message(row, column));
+	    for (var column= 0; column < the_board.width(); column++) {
+		var expected_class= the_board.cell_color(row, column) + "-cell";
+		expect(displayed_cell(displayed_table, row, column)).toHaveClass(expected_class, cell_message(row, column));
+	    }
     });
 
     afterEach(function() {
