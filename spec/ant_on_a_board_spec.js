@@ -14,7 +14,7 @@ _.each(
     		var the_board= new Board();
     		the_ant= the_board.add_ant();
 
-		the_ant.direction(test_case.color);
+		the_ant.direction(test_case.direction);
 		the_board.cell_color(the_ant.row(), the_ant.column(), test_case.color);
 
 		displayed_table= display_table(the_board);
