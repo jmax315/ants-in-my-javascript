@@ -1,14 +1,24 @@
 _.each(
     [
-	{color: 'white', row: 5, column: 5, direction: 'up',    expected_color: 'black', expected_row: 5, expected_column: 6, expected_direction: 'right'},
-	{color: 'white', row: 5, column: 5, direction: 'left',  expected_color: 'black', expected_row: 4, expected_column: 5, expected_direction: 'up'},
-	{color: 'white', row: 5, column: 5, direction: 'down',  expected_color: 'black', expected_row: 5, expected_column: 4, expected_direction: 'left'},
-	{color: 'white', row: 5, column: 5, direction: 'right', expected_color: 'black', expected_row: 6, expected_column: 5, expected_direction: 'down'},
+	{color: 'white', row: 5, column: 5, direction: 'up',    new_color: 'black', new_row: 5, new_column: 6, new_direction: 'right'},
+	{color: 'white', row: 5, column: 5, direction: 'left',  new_color: 'black', new_row: 4, new_column: 5, new_direction: 'up'},
+	{color: 'white', row: 5, column: 5, direction: 'down',  new_color: 'black', new_row: 5, new_column: 4, new_direction: 'left'},
+	{color: 'white', row: 5, column: 5, direction: 'right', new_color: 'black', new_row: 6, new_column: 5, new_direction: 'down'},
 
-	{color: 'white', row: 3, column: 7, direction: 'up',    expected_color: 'black', expected_row: 3, expected_column: 8, expected_direction: 'right'},
-	{color: 'white', row: 3, column: 7, direction: 'left',  expected_color: 'black', expected_row: 2, expected_column: 7, expected_direction: 'up'},
-	{color: 'white', row: 3, column: 7, direction: 'down',  expected_color: 'black', expected_row: 3, expected_column: 6, expected_direction: 'left'},
-	{color: 'white', row: 3, column: 7, direction: 'right', expected_color: 'black', expected_row: 4, expected_column: 7, expected_direction: 'down'},
+	{color: 'white', row: 3, column: 7, direction: 'up',    new_color: 'black', new_row: 3, new_column: 8, new_direction: 'right'},
+	{color: 'white', row: 3, column: 7, direction: 'left',  new_color: 'black', new_row: 2, new_column: 7, new_direction: 'up'},
+	{color: 'white', row: 3, column: 7, direction: 'down',  new_color: 'black', new_row: 3, new_column: 6, new_direction: 'left'},
+	{color: 'white', row: 3, column: 7, direction: 'right', new_color: 'black', new_row: 4, new_column: 7, new_direction: 'down'},
+
+	{color: 'black', row: 5, column: 5, direction: 'up',    new_color: 'white', new_row: 5, new_column: 6, new_direction: 'right'},
+	{color: 'black', row: 5, column: 5, direction: 'left',  new_color: 'white', new_row: 4, new_column: 5, new_direction: 'up'},
+	{color: 'black', row: 5, column: 5, direction: 'down',  new_color: 'white', new_row: 5, new_column: 4, new_direction: 'left'},
+	{color: 'black', row: 5, column: 5, direction: 'right', new_color: 'white', new_row: 6, new_column: 5, new_direction: 'down'},
+
+	{color: 'black', row: 3, column: 7, direction: 'up',    new_color: 'white', new_row: 3, new_column: 8, new_direction: 'right'},
+	{color: 'black', row: 3, column: 7, direction: 'left',  new_color: 'white', new_row: 2, new_column: 7, new_direction: 'up'},
+	{color: 'black', row: 3, column: 7, direction: 'down',  new_color: 'white', new_row: 3, new_column: 6, new_direction: 'left'},
+	{color: 'black', row: 3, column: 7, direction: 'right', new_color: 'white', new_row: 4, new_column: 7, new_direction: 'down'},
     ],
 
     function(test_case) {
@@ -28,20 +38,20 @@ _.each(
 			 the_ant.step();
 		     });
 
-		     it("is located at row " + test_case.expected_row, function() {
-			 expect(the_ant.row()).toEqual(test_case.expected_row);
+		     it("is located at row " + test_case.new_row, function() {
+			 expect(the_ant.row()).toEqual(test_case.new_row);
 		     });
 
-		     it("is located at column " + test_case.expected_column, function() {
-			 expect(the_ant.column()).toEqual(test_case.expected_column);
+		     it("is located at column " + test_case.new_column, function() {
+			 expect(the_ant.column()).toEqual(test_case.new_column);
 		     });
 
-		     it("is facing " + test_case.expected_direction, function() {
-			 expect(the_ant.direction()).toEqual(test_case.expected_direction);
+		     it("is facing " + test_case.new_direction, function() {
+			 expect(the_ant.direction()).toEqual(test_case.new_direction);
 		     });
 
 		     it("its old cell is flipped to black", function() {
-			 expect(the_board.cell_color(test_case.row, test_case.column)).toEqual(test_case.expected_color);
+			 expect(the_board.cell_color(test_case.row, test_case.column)).toEqual(test_case.new_color);
 		     });
 		 });
     });
