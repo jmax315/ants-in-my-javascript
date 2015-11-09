@@ -1,4 +1,4 @@
-describe("an ant", function() {
+describe("an ant with default values", function() {
     var the_ant= null;
 
     beforeEach(function() {
