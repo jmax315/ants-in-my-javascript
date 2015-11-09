@@ -1,4 +1,5 @@
 function Board() {
+    this.ant(null);
     this._cells= [];
     for (var row= 0; row < this.width(); row++) {
 	var new_row= [];
@@ -7,6 +8,8 @@ function Board() {
 	this._cells.push(new_row);
     }
 }
+
+accessor(Board, "ant");
 
 Board.prototype.width= function() {
     return 10;
@@ -28,5 +31,6 @@ Board.prototype.display= function(container) {
 }
 
 Board.prototype.add_ant= function() {
-    return new Ant(this);
+    this.ant(new Ant(this));
+    return this.ant();
 }
