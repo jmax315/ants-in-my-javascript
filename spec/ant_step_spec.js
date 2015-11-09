@@ -2,7 +2,12 @@ _.each(
     [{row: 5, column: 5, direction: 'up',    expected_row: 5, expected_column: 6, expected_direction: 'right'},
      {row: 5, column: 5, direction: 'left',  expected_row: 4, expected_column: 5, expected_direction: 'up'},
      {row: 5, column: 5, direction: 'down',  expected_row: 5, expected_column: 4, expected_direction: 'left'},
-     {row: 5, column: 5, direction: 'right', expected_row: 6, expected_column: 5, expected_direction: 'down'}],
+     {row: 5, column: 5, direction: 'right', expected_row: 6, expected_column: 5, expected_direction: 'down'},
+
+     {row: 3, column: 7, direction: 'up',    expected_row: 3, expected_column: 8, expected_direction: 'right'},
+     {row: 3, column: 7, direction: 'left',  expected_row: 2, expected_column: 7, expected_direction: 'up'},
+     {row: 3, column: 7, direction: 'down',  expected_row: 3, expected_column: 6, expected_direction: 'left'},
+     {row: 3, column: 7, direction: 'right', expected_row: 4, expected_column: 7, expected_direction: 'down'}],
 
     function(test_case) {
 	describe("after stepping an ant at [" + test_case.row + "," + test_case.column + "], on a white cell, facing " + test_case.direction, function() {
