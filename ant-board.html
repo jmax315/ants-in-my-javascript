@@ -19,9 +19,11 @@
 
   <script>
     $(function() {
-        var board= new Board();
-        board.add_ant();
-        board.display($('body'));
+	var board= new Board();
+	board.add_ant();
+
+	var ui= new Ui($('body'));
+	var displayed_board= ui.display(board);
     });
   </script>
 </head>

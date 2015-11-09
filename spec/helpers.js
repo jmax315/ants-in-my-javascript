@@ -4,7 +4,10 @@ function displayed_cell(displayed_table, row, column) {
 
 function display_table(the_board) {
     jasmine.getFixtures().set("<div id='board-div'></div>");
-    the_board.display($('#board-div'));
+
+    var ui= new Ui($('#board-div'));
+    var displayed_board= ui.display(the_board);
+
     return $('#board-div>table#ant-board');
 }
 

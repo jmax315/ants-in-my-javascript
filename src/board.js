@@ -25,11 +25,6 @@ Board.prototype.cell_color= function(row, column, new_value) {
     return this._cells[row][column];
 }
 
-Board.prototype.display= function(container) {
-    var ui= new Ui(container);
-    var displayed_board= ui.display(this);
-}
-
 Board.prototype.add_ant= function() {
     this.ant(new Ant(this));
     return this.ant();
