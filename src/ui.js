@@ -18,16 +18,12 @@ Ui.prototype.cell_contents= function(row, column) {
     return "";
 };
 
-Ui.prototype.display_cell= function(displayed_row, row, column) {
-    $("<td class='" + this.cell_class(row, column) + "'>" + this.cell_contents(row, column) + "</td>").appendTo(displayed_row);
-};
-
 Ui.prototype.display= function(a_board) {
     this.board(a_board);
     this.displayed_board($("<table id='ant-board'></table>").appendTo(this.container()));
     for (var row= 0; row < this.board().height(); row++) {
 	var displayed_row= $("<tr></tr>").appendTo(this.displayed_board());
 	for (var column= 0; column < this.board().width(); column++)
-	    this.display_cell(displayed_row, row, column);
+	    $("<td class='" + this.cell_class(row, column) + "'>" + this.cell_contents(row, column) + "</td>").appendTo(displayed_row);
     }
 };
