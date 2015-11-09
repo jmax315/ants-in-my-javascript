@@ -20,7 +20,7 @@ Ui.prototype.cell_class= function() {
 
 Ui.prototype.cell_contents= function() {
     if (this.board().is_ant_at(this.row(), this.column())) {
-	return "<img src=\"images/ant-on-white-" + this.board().ant().direction() + ".jpg\">";
+	return "<img src=\"images/ant-on-" + this.board().cell_color(this.board().ant().row(), this.board().ant().column()) + "-" + this.board().ant().direction() + ".jpg\">";
     }
     return "";
 };
