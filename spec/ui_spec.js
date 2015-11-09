@@ -1,4 +1,4 @@
-describe("when displayed, creates a table", function() {
+describe("when a board is displayed it, creates a table", function() {
     var the_board= null;
     var displayed_table= null;
 
@@ -9,15 +9,15 @@ describe("when displayed, creates a table", function() {
 	displayed_table= display_table(the_board);
     });
 
-    it("in the DOM", function() {
-	expect(displayed_table).toBeInDOM();
+    it("which is visible", function() {
+	expect(displayed_table).toBeVisible();
     }); 
 
-    it("with 10 rows", function() {
+    it("with the same number of rows as the board", function() {
 	expect(displayed_table[0].rows.length).toEqual(the_board.height());
     });
 
-    it("with 10 columns", function() {
+    it("with the same number of columns as the board", function() {
 	expect(displayed_table[0].rows[0].cells.length).toEqual(the_board.width());
     });
 

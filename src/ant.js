@@ -10,7 +10,7 @@ accessor(Ant, "column");
 accessor(Ant, "direction");
 accessor(Ant, "board");
 
-Ant.prototype.directions= {
+Ant.prototype.direction_table= {
     up:    {turn_left: 'left',  turn_right: 'right', row_increment: -1, column_increment: 0},
     left:  {turn_left: 'down',  turn_right: 'up',    row_increment:  0, column_increment: -1},
     down:  {turn_left: 'right', turn_right: 'left',  row_increment:  1, column_increment: 0},
@@ -27,7 +27,7 @@ Ant.prototype.color_table_lookup= function() {
 };
 
 Ant.prototype.direction_table_lookup= function() {
-    return this.directions[this.direction()];
+    return this.direction_table[this.direction()];
 }
 
 Ant.prototype.new_direction= function() {
@@ -64,7 +64,16 @@ Ant.prototype.turn= function() {
     this.direction(this.new_direction());
 };
 
+Ant.prototype.on_board= function() {
+    return this.board() &&
+	this.column() >= 0 && this.column() < this.board().width() &&
+	this.row() >= 0 && this.row() < this.board().height();
+};
+
 Ant.prototype.step= function() {
+    if (!this.on_board())
+	return;
+
     this.flip_color();
     this.turn();
     this.move_forward();
