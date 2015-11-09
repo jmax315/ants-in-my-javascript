@@ -18,8 +18,8 @@ Ant.prototype.directions= {
 };
 
 Ant.prototype.colors= {
-    'black': {flipped_color: 'white'},
-    'white': {flipped_color: 'black'}
+    'black': {flipped_color: 'white', turn: function() {this.direction(this.directions[this.direction()].turn_right);} },
+    'white': {flipped_color: 'black', turn: function() {this.direction(this.directions[this.direction()].turn_left);} }
 };
 
 Ant.prototype.color= function(new_value) {
@@ -30,24 +30,13 @@ Ant.prototype.flip_color= function() {
     this.color(this.colors[this.color()].flipped_color);
 };
 
-Ant.prototype.turn_left= function() {
-    this.direction(this.directions[this.direction()].turn_left);
-};
-
-Ant.prototype.turn_right= function() {
-    this.direction(this.directions[this.direction()].turn_right);
-};
-
 Ant.prototype.move_forward= function() {
     this.row(this.row() + this.directions[this.direction()].row_increment);
     this.column(this.column() + this.directions[this.direction()].column_increment);
 };
 
 Ant.prototype.turn= function() {
-    if (this.color() === 'white')
-	this.turn_left();
-    else
-	this.turn_right();
+    this.colors[this.color()].turn.call(this);
 }
 
 Ant.prototype.step= function() {
