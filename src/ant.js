@@ -11,7 +11,10 @@ accessor(Ant, "direction");
 accessor(Ant, "board");
 
 Ant.prototype.flip_color= function() {
-    this.board().cell_color(this.row(), this.column(), 'black');
+    if (this.board().cell_color(this.row(), this.column()) === 'white')
+	this.board().cell_color(this.row(), this.column(), 'black');
+    else
+	this.board().cell_color(this.row(), this.column(), 'white');
 };
 
 Ant.prototype.turn_right= function() {
