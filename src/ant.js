@@ -10,23 +10,24 @@ accessor(Ant, "column");
 accessor(Ant, "direction");
 accessor(Ant, "board");
 
-Ant.prototype.directions=
-    {
-	up:    {turn_left: 'left',  turn_right: 'right', row_increment: -1, column_increment: 0},
-	left:  {turn_left: 'down',  turn_right: 'up',    row_increment:  0, column_increment: -1},
-	down:  {turn_left: 'right', turn_right: 'left',  row_increment:  1, column_increment: 0},
-	right: {turn_left: 'up',    turn_right: 'down',  row_increment:  0, column_increment: 1}
-    };
+Ant.prototype.directions= {
+    up:    {turn_left: 'left',  turn_right: 'right', row_increment: -1, column_increment: 0},
+    left:  {turn_left: 'down',  turn_right: 'up',    row_increment:  0, column_increment: -1},
+    down:  {turn_left: 'right', turn_right: 'left',  row_increment:  1, column_increment: 0},
+    right: {turn_left: 'up',    turn_right: 'down',  row_increment:  0, column_increment: 1}
+};
+
+Ant.prototype.colors= {
+    'black': {flipped_color: 'white'},
+    'white': {flipped_color: 'black'}
+};
 
 Ant.prototype.color= function(new_value) {
     return this.board().cell_color(this.row(), this.column(), new_value);
 };
     
 Ant.prototype.flip_color= function() {
-    if (this.color() === 'white')
-	this.color('black');
-    else
-	this.color('white');
+    this.color(this.colors[this.color()].flipped_color);
 };
 
 Ant.prototype.turn_left= function() {
