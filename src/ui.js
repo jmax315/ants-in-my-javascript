@@ -45,13 +45,13 @@ Ui.prototype.add_cell= function() {
 	this.start_row();
 
     $("<td class='" + this.cell_class() + "'>" + this.cell_contents() + "</td>").appendTo(this.displayed_row());
+    this.next_cell();
+    return !this.done();
 };
 
 Ui.prototype.display= function(a_board) {
     this.board(a_board);
     this.displayed_board($("<table id='ant-board'></table>").appendTo(this.container()));
-    while (!this.done()) {
-	this.add_cell();
-	this.next_cell();
-    }
+    while (this.add_cell())
+	;
 };
