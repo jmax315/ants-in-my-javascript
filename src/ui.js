@@ -2,11 +2,17 @@ function Ui(ui_container) {
     this.container(ui_container);
     this.board(null);
     this.displayed_board(null);
+    this.row(0);
+    this.column(0);
+    this.displayed_row(null);
 }
 
 accessor(Ui, "container");
 accessor(Ui, "board");
 accessor(Ui, "displayed_board");
+accessor(Ui, "row");
+accessor(Ui, "column");
+accessor(Ui, "displayed_row");
 
 Ui.prototype.cell_class= function(row, column) {
     return this.board().cell_color(row, column) + "-cell";
@@ -21,9 +27,13 @@ Ui.prototype.cell_contents= function(row, column) {
 Ui.prototype.display= function(a_board) {
     this.board(a_board);
     this.displayed_board($("<table id='ant-board'></table>").appendTo(this.container()));
-    for (var row= 0; row < this.board().height(); row++) {
-	var displayed_row= $("<tr></tr>").appendTo(this.displayed_board());
-	for (var column= 0; column < this.board().width(); column++)
-	    $("<td class='" + this.cell_class(row, column) + "'>" + this.cell_contents(row, column) + "</td>").appendTo(displayed_row);
+    while (this.row() < this.board().height()) {
+	this.displayed_row= $("<tr></tr>").appendTo(this.displayed_board());
+	while (this.column() < this.board().width()) {
+	    $("<td class='" + this.cell_class(this.row(), this.column()) + "'>" + this.cell_contents(this.row(), this.column()) + "</td>").appendTo(this.displayed_row);
+	    this.column(this.column() + 1);
+	}
+	this.column(0);
+	this.row(this.row() + 1);
     }
 };
