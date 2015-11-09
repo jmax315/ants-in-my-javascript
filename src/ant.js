@@ -10,6 +10,14 @@ accessor(Ant, "column");
 accessor(Ant, "direction");
 accessor(Ant, "board");
 
+Ant.prototype.directions=
+    {
+	up:    {turn_left: 'left',  turn_right: 'right', row_increment: -1, column_increment: 0},
+	left:  {turn_left: 'down',  turn_right: 'up',    row_increment:  0, column_increment: -1},
+	down:  {turn_left: 'right', turn_right: 'left',  row_increment:  1, column_increment: 0},
+	right: {turn_left: 'up',    turn_right: 'down',  row_increment:  0, column_increment: 1}
+    };
+
 Ant.prototype.color= function(new_value) {
     return this.board().cell_color(this.row(), this.column(), new_value);
 };
@@ -22,54 +30,16 @@ Ant.prototype.flip_color= function() {
 };
 
 Ant.prototype.turn_left= function() {
-    switch(this.direction()) {
-    case 'up':
-	this.direction('left');
-	break;
-    case 'left':
-	this.direction('down');
-	break;
-    case 'down':
-	this.direction('right');
-	break;
-    case 'right':
-	this.direction('up');
-	break;
-    }
+    this.direction(this.directions[this.direction()].turn_left);
 };
 
 Ant.prototype.turn_right= function() {
-    switch(this.direction()) {
-    case 'up':
-	this.direction('right');
-	break;
-    case 'left':
-	this.direction('up');
-	break;
-    case 'down':
-	this.direction('left');
-	break;
-    case 'right':
-	this.direction('down');
-	break;
-    }
+    this.direction(this.directions[this.direction()].turn_right);
 };
 
 Ant.prototype.move_forward= function() {
-    switch(this.direction()) {
-    case 'up':
-	this.row(this.row() - 1);
-	break;
-    case 'left':
-	this.column(this.column() - 1);
-	break;
-    case 'down':
-	this.row(this.row() + 1);
-	break;
-    case 'right':
-	this.column(this.column() + 1);
-	break;
-    }
+    this.row(this.row() + this.directions[this.direction()].row_increment);
+    this.column(this.column() + this.directions[this.direction()].column_increment);
 };
 
 Ant.prototype.turn= function() {
