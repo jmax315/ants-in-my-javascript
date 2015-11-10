@@ -10,5 +10,10 @@ describe("an App", function() {
 	it ("knows its container", function() {
 	    expect(the_app.container()).toEqual($('#app-container'));
 	});
+
+	it ("does not put anything into its container", function() {
+	    expect(the_app.container()).toBeEmpty();
+
+	});
     });
 });
