@@ -11,7 +11,7 @@ _.each(
 	{color: 'black', direction: 'right', expected_image: "images/ant-on-black-right.jpg"},
     ],
     function(test_case) {
-	describe("when a board with an ant on a " + test_case.color + " cell, facing " + test_case.direction + " is displayed", function() {
+	describe("displaying a board with an ant on a " + test_case.color + " cell, facing " + test_case.direction, function() {
 	    var the_ant= null;
 	    var displayed_table= null;
 

@@ -22,7 +22,7 @@ _.each(
     ],
 
     function(test_case) {
-	describe("after stepping an ant at [" + test_case.row + "," + test_case.column + "]," +
+	describe("after stepping, an ant which started at [" + test_case.row + "," + test_case.column + "]," +
 		 " on a " + test_case.color + " cell," +
 		 " facing " + test_case.direction,
 		 function() {
