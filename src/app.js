@@ -1,15 +1,17 @@
 function App() {
     this.container(null);
     this.board(null);
-    this.ant(null);
     this.interval_handle(null);
 }
 
 accessor(App, "container");
 accessor(App, "update_interval");
 accessor(App, "board");
-accessor(App, "ant");
 accessor(App, "interval_handle");
+
+App.prototype.ant= function(new_value) {
+    return this.board().ant(new_value);
+};
 
 App.prototype.setup= function(app_container) {
     this.container(app_container);
@@ -27,7 +29,7 @@ App.prototype.update_board= function() {
     this.show_board();
 };
 
-App.step= function() {
+App.prototype.step= function() {
     this.ant().step();
     this.update_board();
 };
@@ -43,7 +45,7 @@ App.prototype.run= function() {
 		    this.stop();
 	    },
 	    this),
-	0));
+	500));
 };
 
 App.prototype.stop= function() {
