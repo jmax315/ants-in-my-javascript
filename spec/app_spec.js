@@ -8,7 +8,7 @@ describe("an App", function() {
     
     describe("when newly created", function() {
 	it ("knows its container", function() {
-	    expect(the_app.container()).toEqual('app-container');
+	    expect(the_app.container()).toEqual($('#app-container'));
 	});
     });
 });
