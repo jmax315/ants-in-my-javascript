@@ -33,12 +33,28 @@ describe("App.initialize()", function() {
 	expect(the_app.board()).toBeTruthy();
     });
 
-    it("puts the board into its container", function() {
-	expect($('#app-container>table')).toBeVisible();
+    it("does not put the board into its container", function() {
+	expect($('#app-container>table')).toBeEmpty();
     });
 
     it("adds an ant to the board", function() {
 	expect(the_app.board().ant()).toBeTruthy();
+    });
+});
+
+describe("App.show_board()", function() {
+    var the_app= null;
+
+    beforeEach(function() {
+	jasmine.getFixtures().set("<div id='app-container'></div>");
+	the_app= new App($('#app-container'));
+
+	the_app.initialize();
+	the_app.show_board();
+    });
+    
+    it("puts the board into its container", function() {
+	expect($('#app-container>table')).toBeVisible();
     });
 });
 
