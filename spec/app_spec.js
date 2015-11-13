@@ -53,8 +53,13 @@ describe("App.show_board()", function() {
 	the_app.show_board();
     });
     
-    it("puts the board into its container", function() {
+    it("displays the board into its container", function() {
 	expect($('#app-container>table')).toBeVisible();
+    });
+
+    it("doesn't clear any old boards out of the container", function() {
+	the_app.show_board();
+	expect($('#app-container>table').length).toEqual(2);
     });
 });
 
