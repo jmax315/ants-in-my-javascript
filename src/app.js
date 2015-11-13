@@ -13,4 +13,7 @@ App.prototype.initialize= function() {
 App.prototype.show_board= function() {
     var board_drawer= new BoardDrawer(this.container());
     board_drawer.display(this.board());
-}
+};
+
+App.prototype.update_board= function() {
+};
