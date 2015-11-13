@@ -36,5 +36,9 @@ describe("App.initialize()", function() {
     it("puts the board into its container", function() {
 	expect($('#app-container>table')).toBeVisible();
     });
+
+    it("adds an ant to the board", function() {
+	expect(the_app.board().ant()).toBeTruthy();
+    });
 });
 
