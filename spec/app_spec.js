@@ -10,9 +10,12 @@ describe("a newly created App", function() {
 	expect(the_app.container()).toEqual($('#app-container'));
     });
 
-    it ("does not put anything into its container", function() {
+    it("does not put anything into its container", function() {
 	expect(the_app.container()).toBeEmpty();
+    });
 
+    it("does not create a board", function() {
+	expect(the_app.board()).toBeUndefined();
     });
 });
 
