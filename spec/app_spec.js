@@ -71,13 +71,12 @@ describe("App.update_board", function() {
 	the_app= new App($('#app-container'));
 
 	the_app.initialize();
-	the_app.show_board();
     });
 
     describe("when the board isn't shown", function() {
 
 	beforeEach(function() {
-	    the_app.show_board();
+	    the_app.update_board();
 	});
 
 	it("doesn't display the board", function() {
