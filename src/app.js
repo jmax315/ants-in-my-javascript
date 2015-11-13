@@ -3,11 +3,8 @@ function App(app_container) {
     this.board(new Board);
 }
 
+reader(App, "container");
 accessor(App, "board");
-
-App.prototype.container= function() {
-    return this._container;
-};
 
 App.prototype.initialize= function() {
     var board_drawer= new BoardDrawer(this.container());
