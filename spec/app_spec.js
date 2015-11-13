@@ -33,7 +33,7 @@ describe("App.initialize()", function() {
 	expect(the_app.board()).toBeTruthy();
     });
 
-    it("does not put the board into its container", function() {
+    it("does not display the board", function() {
 	expect($('#app-container>table')).not.toExist();
     });
 
@@ -63,3 +63,25 @@ describe("App.show_board()", function() {
     });
 });
 
+describe("App.update_board", function() {
+    var the_app= null;
+
+    beforeEach(function() {
+	jasmine.getFixtures().set("<div id='app-container'></div>");
+	the_app= new App($('#app-container'));
+
+	the_app.initialize();
+	the_app.show_board();
+    });
+
+    describe("when the board isn't shown", function() {
+
+	beforeEach(function() {
+	    the_app.show_board();
+	});
+
+	it("doesn't display the board", function() {
+	    expect($('#app-container>table')).not.toExist();
+	});
+    });
+});
