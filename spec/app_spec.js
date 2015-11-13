@@ -34,7 +34,7 @@ describe("App.initialize()", function() {
     });
 
     it("does not put the board into its container", function() {
-	expect($('#app-container>table')).toBeEmpty();
+	expect($('#app-container>table')).not.toExist();
     });
 
     it("adds an ant to the board", function() {
