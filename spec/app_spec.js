@@ -116,3 +116,20 @@ describe("App.ant", function() {
 	expect(the_app.ant()).toEqual(the_app.board().ant());
     });
 });
+
+describe("App.step", function() {
+    var the_app= null;
+
+    beforeEach(function() {
+	jasmine.getFixtures().set("<div id='app-container'></div>");
+	the_app= new App($('#app-container'));
+
+	the_app.initialize();
+	spyOn(the_app.ant(), 'step');
+	the_app.step();
+    });
+
+    it("calls the ant's step function", function() {
+	expect(the_app.ant().step).toBeCalled();
+    });
+});
