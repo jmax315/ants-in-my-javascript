@@ -21,3 +21,7 @@ App.prototype.update_board= function() {
     this.container().html("");
     this.show_board();
 };
+
+App.prototype.ant= function() {
+    return this.board().ant();
+};
