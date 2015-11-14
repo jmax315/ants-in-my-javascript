@@ -130,6 +130,6 @@ describe("App.step", function() {
     });
 
     it("calls the ant's step function", function() {
-	expect(the_app.ant().step).toBeCalled();
+	expect(the_app.ant().step).toHaveBeenCalled();
     });
 });
