@@ -138,21 +138,3 @@ describe("App.step_and_update", function() {
 	expect(the_app.update_board).toHaveBeenCalled();
     });
 });
-
-describe("App.run", function() {
-    var the_app= null;
-
-    beforeEach(function() {
-	jasmine.getFixtures().set("<div id='app-container'></div>");
-	the_app= new App($('#app-container'));
-
-	the_app.initialize();
-
-	spyOn(window, 'setInterval');
-	the_app.run();
-    });
-
-    it("calls step_and_update() every half second", function() {
-	expect(window.setInterval).toHaveBeenCalledWith(the_app.step_and_update, 500);
-    });
-});
