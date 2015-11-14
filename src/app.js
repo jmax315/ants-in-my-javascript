@@ -5,6 +5,10 @@ function App(app_container) {
 reader(App, "container");
 accessor(App, "board");
 
+App.prototype.ant= function() {
+    return this.board().ant();
+};
+
 App.prototype.initialize= function() {
     this.board(new Board);
     this.board().add_ant();
@@ -22,6 +26,6 @@ App.prototype.update_board= function() {
     this.show_board();
 };
 
-App.prototype.ant= function() {
-    return this.board().ant();
+App.prototype.step= function() {
+    this.board().ant().step();
 };
