@@ -8,6 +8,8 @@
     #ant-board {margin-left: 10%; border-collapse: collapse; background-color: grey;}
     .white-cell {border: 1px solid black; width: 0.5in; height: 0.5in; background-color: white;}
     .white-cell img {width: 100%; height: 100%;}
+    .black-cell {border: 1px solid black; width: 0.5in; height: 0.5in; background-color: black;}
+    .black-cell img {width: 100%; height: 100%;}
   </style>
 
   <script src="lib/jquery.js"></script>
@@ -16,14 +18,14 @@
   <script src="src/board.js"></script>
   <script src="src/ant.js"></script>
   <script src="src/board_drawer.js"></script>
+  <script src="src/app.js"></script>
 
   <script>
     $(function() {
-	var board= new Board();
-	board.add_ant();
-
-	var board_drawer= new BoardDrawer($('body'));
-	var displayed_board= board_drawer.display(board);
+        var app= new App($('body'));
+        app.initialize();
+	app.show_board();
+	app.run();
     });
   </script>
 </head>

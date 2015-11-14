@@ -30,3 +30,9 @@ App.prototype.step_and_update= function() {
     this.board().ant().step();
     this.update_board();
 };
+
+App.prototype.run= function() {
+    var self= this;
+    setInterval(function() {self.step_and_update();},
+		500);
+};
