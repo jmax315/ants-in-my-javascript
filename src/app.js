@@ -16,4 +16,8 @@ App.prototype.show_board= function() {
 };
 
 App.prototype.update_board= function() {
+    if (this.container().html() === "")
+	return;
+    this.container().html("");
+    this.show_board();
 };
