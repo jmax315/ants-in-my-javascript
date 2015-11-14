@@ -26,7 +26,7 @@ App.prototype.update_board= function() {
     this.show_board();
 };
 
-App.prototype.step_and_show= function() {
+App.prototype.step_and_update= function() {
     this.board().ant().step();
     this.update_board();
 };

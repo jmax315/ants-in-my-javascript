@@ -127,7 +127,7 @@ describe("App.step_and_update", function() {
 	the_app.initialize();
 	spyOn(the_app.ant(), 'step');
 	spyOn(the_app, 'update_board');
-	the_app.step_and_show();
+	the_app.step_and_update();
     });
     
     it("steps the ant", function() {
