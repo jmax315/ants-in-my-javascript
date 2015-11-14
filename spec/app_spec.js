@@ -101,3 +101,18 @@ describe("App.update_board", function() {
 	});
     });
 });
+
+describe("App.ant", function() {
+    var the_app= null;
+
+    beforeEach(function() {
+	jasmine.getFixtures().set("<div id='app-container'></div>");
+	the_app= new App($('#app-container'));
+
+	the_app.initialize();
+    });
+
+    it("returns the board's ant", function() {
+	expect(the_app.ant()).toEqual(the_app.board().ant());
+    });
+});
