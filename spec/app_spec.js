@@ -117,7 +117,7 @@ describe("App.ant", function() {
     });
 });
 
-describe("App.step", function() {
+describe("App.step_and_update", function() {
     var the_app= null;
 
     beforeEach(function() {
@@ -126,10 +126,15 @@ describe("App.step", function() {
 
 	the_app.initialize();
 	spyOn(the_app.ant(), 'step');
-	the_app.step();
+	spyOn(the_app, 'update_board');
+	the_app.step_and_show();
+    });
+    
+    it("steps the ant", function() {
+	expect(the_app.ant().step).toHaveBeenCalled();
     });
 
-    it("calls the ant's step function", function() {
-	expect(the_app.ant().step).toHaveBeenCalled();
+    it("updates the board display", function() {
+	expect(the_app.update_board).toHaveBeenCalled();
     });
 });
