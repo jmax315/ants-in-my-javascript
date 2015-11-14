@@ -74,13 +74,30 @@ describe("App.update_board", function() {
     });
 
     describe("when the board isn't shown", function() {
-
 	beforeEach(function() {
 	    the_app.update_board();
 	});
 
 	it("doesn't display the board", function() {
 	    expect($('#app-container>table')).not.toExist();
+	});
+    });
+
+    describe("when the board is shown", function() {
+	beforeEach(function() {
+	    the_app.board().cell_color(0, 0, 'white');
+	    the_app.show_board();
+	    the_app.board().cell_color(0, 0, 'black');
+	    the_app.update_board();
+	});
+
+	it("doesn't display a new board", function() {
+	    expect($('#app-container>table').length).toEqual(1);
+	});
+
+	it("updates the displayed board", function() {
+	    var cells= $('#app-container>table td');
+	    expect($(cells[0])).toHaveClass('black-cell');
 	});
     });
 });
