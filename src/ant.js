@@ -58,6 +58,12 @@ Ant.prototype.flip_color= function() {
 Ant.prototype.move_forward= function() {
     this.row(this.row() + this.row_increment());
     this.column(this.column() + this.column_increment());
+    this.wrap_ant();
+};
+
+Ant.prototype.wrap_ant= function() {
+    this.row((this.row() + this.board().height()) % this.board().height());
+    this.column((this.column() + this.board().width()) % this.board().width());
 };
 
 Ant.prototype.turn= function() {
