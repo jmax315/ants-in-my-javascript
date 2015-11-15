@@ -57,7 +57,9 @@ Ant.prototype.flip_color= function() {
 
 Ant.prototype.move_forward= function() {
     this.row(this.row() + this.row_increment());
+    this.row(this.row() % this.board().height());
     this.column(this.column() + this.column_increment());
+    this.column(this.column() % this.board().width());
 };
 
 Ant.prototype.turn= function() {
