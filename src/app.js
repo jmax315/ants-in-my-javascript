@@ -6,7 +6,7 @@ reader(App, "container");
 accessor(App, "board");
 
 App.prototype.ant= function() {
-    return this.board().ant();
+    return this.board() && this.board().ant();
 };
 
 App.prototype.initialize= function() {
