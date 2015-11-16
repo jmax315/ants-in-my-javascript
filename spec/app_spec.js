@@ -17,6 +17,10 @@ describe("a newly created App", function() {
     it("does not create a board", function() {
 	expect(the_app.board()).toBeUndefined();
     });
+
+    it("does not have an ant", function() {
+	expect(the_app.ant()).toBeUndefined();
+    });
 });
 
 describe("App.initialize()", function() {
