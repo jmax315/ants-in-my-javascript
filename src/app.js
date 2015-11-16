@@ -33,6 +33,6 @@ App.prototype.step_and_update= function() {
 
 App.prototype.run= function() {
     var self= this;
-    // setInterval(function() {self.step_and_update();},
-    // 		500);
+    setInterval(function() {self.step_and_update();},
+    		500);
 };

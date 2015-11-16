@@ -158,7 +158,7 @@ describe("App.run", function() {
 	jasmine.clock().tick(501);
     });
     
-    it("steps the ant", function() {
+    it("hits the timer callback", function() {
 	expect(the_app.step_and_update).toHaveBeenCalled();
     });
 
