@@ -142,3 +142,27 @@ describe("App.step_and_update", function() {
 	expect(the_app.update_board).toHaveBeenCalled();
     });
 });
+
+describe("App.run", function() {
+    var the_app= null;
+
+    beforeEach(function() {
+	jasmine.getFixtures().set("<div id='app-container'></div>");
+	the_app= new App($('#app-container'));
+
+	spyOn(the_app, 'step_and_update');
+	jasmine.clock().install();
+
+	the_app.initialize();
+	the_app.run();
+	jasmine.clock().tick(501);
+    });
+    
+    it("steps the ant", function() {
+	expect(the_app.step_and_update).toHaveBeenCalled();
+    });
+
+    afterEach(function() {
+	jasmine.clock().uninstall();
+    });
+});
